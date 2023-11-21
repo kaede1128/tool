@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Img to base64</title>
 </head>
+<link rel="stylesheet" href="css/main.css">
+</link>
 <script type="text/javascript" src="js/main.js"></script>
+
 <body>
-  Please select a file and then hit Evaluate:
-  
-  <br/>
-  <br/>
-  <input id="file" type="file"/>
-  <br/>
-  <br/>
-  <button id="button">Evaluate
-  
+    <main>
+        <section id="dropzone">
+            <span>Please select a file OR drop anywhere and then hit Evaluate:</span>
+            <input id="file" type="file" />
+            <div id="pending-list"></div>
+        </section>
+        <section id="middle">
+            <button id="btnEvaluate">Evaluate
+            <button id="btnClear">Clear Result
+        </section>
+        <section id="result">
+
+        </section>
+    </main>
 </body>
+
 </html>
