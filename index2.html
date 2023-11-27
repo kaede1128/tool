@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>2</title>
+      <!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.4/layouts/ms-Chinese.min.js" integrity="sha512-ScKkDxhELlQxDDy8WPaEGsKKQY6tiWjZwmBk/jJw641nmTkTaIzhjGXdZ/bHsx5TtEqlLGs1SfDvNjPLLUD5+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.4/languages/cs.min.js" integrity="sha512-1LXo2rUzjGXmlSMHglsG6mJ+ULK0NYLkml8fg1Z6NYFIQnX7cFwfnDUZ7oR+kay31HUAEPSD/ird602AQdD55A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.4/js/jquery.keyboard.min.js" integrity="sha512-bnF44HiiJPFa0Kzr+pxQktiT6MnrdSWn/jSkZcJY9Lsw2TRIWZfkI1zo6uNfKEvK0QK2AsJuvf7AIxUmCDOOmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.4/js/jquery.keyboard.extension-all.min.js" integrity="sha512-KJUD9bVhM3upDwL2SDMFtiEWbpEkK6zXiKeGkRjaPUYyhQ1E+WUlyUA2eIbqsVo8nYlac4HxWG5/BeEswA72qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.4/css/keyboard.min.css" integrity="sha512-4gBrVbGpT6dYENLd9Q9RsBODj4nc6/PxILsj4wFA0jwP046R76Q3B8fSR2Orzds16LoiWdC1m0ITFVaNVfQ8+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.4/css/keyboard-dark.min.css" integrity="sha512-zBvvUVHqnKccyZ+Wkp4tJEuVHqCjWd0JXNhFNfWGkXCYL4aL8gnnFqcH3NwyitEoOjyEDFtfWlvnK4qGigda/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<link rel="stylesheet" href="css/main.css">
+</link>
+<script type="text/javascript" src="js/main.js"></script>
+
+<body>
+    <input type="text" />
+    <main>
+        <section id="dropzone">
+            <span>Please select a file OR drop anywhere and then hit Evaluate:</span>
+            <input id="file" type="file" />
+            <div id="pending-list"></div>
+        </section>
+        <section id="middle">
+            <button id="btnEvaluate">Evaluate
+            <button id="btnClear">Clear Result
+        </section>
+        <section id="result">
+
+        </section>
+    </main>
+</body>
+
+</html>
