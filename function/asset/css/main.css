@@ -1,0 +1,32 @@
+
+
+@media (prefers-color-scheme: dark) {
+  .element {
+    color: var(--bs-primary-text-emphasis);
+    background-color: var(--bs-primary-bg-subtle);
+  }
+}
+
+.capsule:before {
+  display: block;
+}
+.capsule-1:before {
+  content: '★';
+  color: #fff3cd;
+}
+.capsule-2:before {
+  content: '★★';
+  color: #ffe69c;
+}
+.capsule-3:before {
+  content: '★★★';
+  color: #ffda6a;
+}
+.capsule-4:before {
+  content: '★★★★';
+  color: #ffc107;
+}
+.capsule-5:before {
+  content: '★★★★★';
+  color: #fd7e14;
+}
