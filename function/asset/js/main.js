@@ -1,10 +1,10 @@
 let userInfo = document.querySelector(".user .info")
 let gachaResult = document.querySelector(".result .gacha")
-let gachaBtn = document.querySelector(".panel .gacha button")
+let gachaPanel = document.querySelector(".panel .gacha")
 let gachaChances
 let data = {
 	user: {
-		amount: 1000,
+		amount: 2500,
 		count: 50,
 	},
 	gacha: { // toy capsule vending machine
@@ -105,39 +105,57 @@ function refill() {
 	shuffle()
 	console.log(pool)
 }
-function gacha() {
-	if (data.user.amount / data.gacha.rate < 1) {
+function gacha(times = 1) {
+	if (data.user.amount / data.gacha.rate < times) {
 		return
 	}
-	refill()
-	shuffle()
-	let capsule = data.gacha.pool.shift()
+	gachaResult.innerHTML = ""
+	for (let i = 0; i < times; i++) {
+		refill()
+		shuffle()
+		let capsule = data.gacha.pool.shift()
 
-	if (!capsule) return
-	gachaResult.innerHTML = `<span class="capsule capsule-${capsule.type}">${capsule.id}</span>`
-	data.user.amount -= data.gacha.rate
+		if (!capsule) return
+		gachaResult.innerHTML += `<span class="capsule capsule-${capsule.type}">${capsule.id}</span>`
+
+	}
+	data.user.amount -= data.gacha.rate*times
 	syncUser()
-	console.log(ObjectSizes(data.gacha.pool), data.user.amount / data.gacha.rate)
-	if (data.user.amount / data.gacha.rate < 1) {
-		gachaChances.remove()
-	} else
-		gachaChances.innerHTML = pettify(data.user.amount / data.gacha.rate)
 }
+
 function syncUser() {
 	userInfo.innerHTML = `Wallet: $ ${data.user.amount}`
+	let chances = [1, 10]
+	chances.forEach((v,i) => {
+		if (data.user.amount / data.gacha.rate < v) {
+			if (gachaPanel.querySelectorAll(".btn .badge")[i])
+			gachaPanel.querySelectorAll(".btn .badge")[i].remove()
+			gachaPanel.querySelectorAll(".btn")[i].classList.add("btn-secondary")
+		} else {
+			gachaPanel.querySelectorAll(".btn")[i].querySelector(".badge").innerHTML = pettify(data.user.amount / data.gacha.rate / v)
+			gachaPanel.querySelectorAll(".btn")[i].classList.remove("btn-secondary")
+		}
+	})
 }
 function preload() {
-	syncUser()
-
 	if (data.user.amount / data.gacha.rate < 1) {}
 	else {
-		gachaBtn.innerHTML += `
+		let chances = [1, 10]
+		gachaPanel.innerHTML = ""
+		chances.forEach((v,i) => {
+			gachaPanel.innerHTML += `
+			<button onclick="gacha(${v})" type="button" class="btn btn-primary position-relative">
+                Gacha
+            </button>
+			`
+			gachaPanel.querySelectorAll(".btn")[i].innerHTML += `
 	        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-	            ${pettify(data.user.amount / data.gacha.rate)}
+	            ${pettify(data.user.amount / data.gacha.rate / v)}
 	        </span>
 		`
-		gachaChances = gachaBtn.querySelector(".badge")
+		})
 	}
+	syncUser()
 
 }
 function ObjectSizes(obj) {
